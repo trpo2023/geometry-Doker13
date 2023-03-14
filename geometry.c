@@ -212,6 +212,9 @@ int main() {
   char *file = "geom.txt";
   
   FILE *fp = fopen(file, "r");
+  if (*fp == NULL){
+    printf("File not found\n");
+  }
   char str[100];
   char circ[20];
   int chek_m;
