@@ -2,16 +2,12 @@
 #include <string.h>
 #include <ctype.h>
 
-int main() {
-  char *file = "geom.txt";
+#define zeroASCII 48
+#define nineASCII 57
+
+int Errors_checker(char *circ, char *str){
   char standart[]="circle";
-  FILE *fp = fopen(file, "r");
-  char str[100];
-  char circ[20];
-  int chek;
-  while (fscanf(fp, "%s ", circ)==1) {
-  fgets(str, 100, fp);
-  chek=1;
+  int chek=1;
   char data[20];
   int i=0;
   while(circ[i]!='\0'){
@@ -21,7 +17,6 @@ int main() {
   int n = strcmp(standart, data);
   if (n!=0){
     printf("%s %sError at column 0: expected 'circle'\n", circ, str);
-    break;
   }
   
   if (str[0]!='('){
@@ -76,7 +71,7 @@ int main() {
     
   int ind=1;
   for (int i = 1; str[i] != ')'; i++) {
-    if ((str[i] >= 48 && str[i] <= 57) || str[i] == '.' || str[i] == ',' || str[i] == ' ')
+    if ((str[i] >= zeroASCII && str[i] <= nineASCII) || str[i] == '.' || str[i] == ',' || str[i] == ' ')
         ind++;
     else {
         ind+=8;
@@ -97,7 +92,7 @@ int main() {
         chek=0;
         break;
       }
-      else if ((str[y-1]<48 || str[y-1]>57) || (str[y+1]<48 || str[y+1]>57)){
+      else if ((str[y-1]<zeroASCII || str[y-1]>nineASCII) || (str[y+1]<zeroASCII || str[y+1]>nineASCII)){
         y+=3;
         printf("%s %sError at column %d: error in argument field\n", circ, str, y);
         chek=0;
@@ -136,7 +131,7 @@ int main() {
   int countnum=0;
   int end=0;
   while (str[h-1]!=')'){
-    if ((str[h]>47 && str[h]<58) || str[h]=='.'){
+    if ((str[h]>zeroASCII-1 && str[h]<nineASCII+1) || str[h]=='.'){
       int countp2=0;
       while (1){
           if (str[h]=='.'){
@@ -210,13 +205,24 @@ int main() {
     h+=6;
     printf("%s %sError at column %d: expected one more argument\n", circ, str, h);
   }
-  
-  if (chek==0){
-    break;
+  return chek;
   }
+
+int main() {
+  char *file = "geom.txt";
   
+  FILE *fp = fopen(file, "r");
+  char str[100];
+  char circ[20];
+  int chek_m;
+  while (fscanf(fp, "%s ", circ)==1) {
+    fgets(str, 100, fp);
+    chek_m=Errors_checker(circ, str);
+    if (chek_m==0){
+      break;
+    } 
   }
-  if (chek==1){
+  if (chek_m==1){
     printf("All done right\n");
   }
   fclose(fp);
