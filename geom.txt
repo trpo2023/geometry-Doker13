@@ -1,3 +1,0 @@
-circle (6 5, 55)
-circle (2.1 5.3, 55)
-circle (6 5, 55)
