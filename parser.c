@@ -143,11 +143,7 @@ int Errors_checker(char* circ, char* str)
                     if (countp2 > 1) {
                         chek = 0;
                         h += 8;
-                        printf("%s %sError at column %d: more then one point "
-                               "in argument\n",
-                               circ,
-                               str,
-                               h);
+                        printf("%s %sError at column %d: more then one point in argument\n", circ, str, h);
                         break;
                     }
                 }
@@ -224,30 +220,4 @@ int Errors_checker(char* circ, char* str)
                h);
     }
     return chek;
-}
-
-int main()
-{
-    char* file = "geom.txt";
-
-    FILE* fp = fopen(file, "r");
-    if (!fp) {
-        printf("File not found\n");
-        return -1;
-    }
-    char str[100];
-    char circ[20];
-    int chek_m;
-    while (fscanf(fp, "%s ", circ) == 1) {
-        fgets(str, 100, fp);
-        chek_m = Errors_checker(circ, str);
-        if (chek_m == 0) {
-            break;
-        }
-    }
-    if (chek_m == 1) {
-        printf("All done right\n");
-    }
-    fclose(fp);
-    return 0;
 }
