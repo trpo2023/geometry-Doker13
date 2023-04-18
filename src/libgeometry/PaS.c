@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define PI 3.14
+#include <math.h>
 
 double x_reader(char* str)
 {
@@ -58,12 +58,12 @@ double r_reader(char* str)
 
 int square(double r)
 {
-    int p = 2 * PI * r;
+    int p = 2 * M_PI * r;
     return p;
 }
 
 int perimetr(double r)
 {
-    int s = PI * r * r;
+    int s = M_PI * r * r;
     return s;
 }
