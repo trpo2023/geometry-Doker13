@@ -1,5 +1,5 @@
-#include <libgeometry/parser.h>
 #include <ctype.h>
+#include <libgeometry/parser.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -144,7 +144,11 @@ int Errors_checker(char* circ, char* str)
                     if (countp2 > 1) {
                         chek = 0;
                         h += 8;
-                        printf("%s %sError at column %d: more then one point in argument\n", circ, str, h);
+                        printf("%s %sError at column %d: more then one point "
+                               "in argument\n",
+                               circ,
+                               str,
+                               h);
                         break;
                     }
                 }

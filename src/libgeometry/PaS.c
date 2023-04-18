@@ -4,7 +4,8 @@
 #include <string.h>
 #define PI 3.14
 
-double x_reader(char* str) {
+double x_reader(char* str)
+{
     char strx[20];
     int j = 0;
     int i = 1;
@@ -18,7 +19,8 @@ double x_reader(char* str) {
     return x;
 }
 
-double y_reader(char* str) {
+double y_reader(char* str)
+{
     char stry[20];
     int j = 0;
     int i = 1;
@@ -26,16 +28,17 @@ double y_reader(char* str) {
         i++;
     }
     while (str[i] != ',') {
-    	stry[j]=str[i];
-    	j++;
+        stry[j] = str[i];
+        j++;
         i++;
     }
-    stry[j]='\0';
+    stry[j] = '\0';
     double y = atof(stry);
     return y;
 }
 
-double r_reader(char* str){
+double r_reader(char* str)
+{
     char strr[20];
     int j = 0;
     int i = 1;
@@ -44,21 +47,23 @@ double r_reader(char* str){
     }
     i++;
     while (str[i] != ')') {
-    	strr[j]=str[i];
-    	j++;
+        strr[j] = str[i];
+        j++;
         i++;
     }
-    strr[j]='\0';
+    strr[j] = '\0';
     double r = atof(strr);
     return r;
 }
 
-int square(double r){
-  int p = 2 * PI * r;
-  return p;
+int square(double r)
+{
+    int p = 2 * PI * r;
+    return p;
 }
 
-int perimetr(double r){
-  int s = PI * r * r;
-  return s;
+int perimetr(double r)
+{
+    int s = PI * r * r;
+    return s;
 }
