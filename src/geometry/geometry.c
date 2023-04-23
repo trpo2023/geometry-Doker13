@@ -6,6 +6,7 @@
 
 int main()
 {
+    printf("\n\n");
     char* file = "input.txt";
     FILE* fp = fopen(file, "r");
     if (!fp) {
@@ -35,16 +36,29 @@ int main()
         circlescount++;
     }
     for (int i = 0; i < circlescount; i++) {
-        int s = square(figur[i]->R);
-        int p = perimetr(figur[i]->R);
+        double s = square(figur[i]->R);
+        double p = perimetr(figur[i]->R);
         printf("Figure number %d:\n", i + 1);
-        printf("X coordinate:%f Y coordinate:%f Radius:%f Square:%d "
-               "Perimetr:%d\n",
+        printf("For circle(%f %f, %f):\nArea:%f Perimetr:%f\nIntersects with:\n",
                figur[i]->x,
                figur[i]->y,
                figur[i]->R,
                s,
                p);
+        int intrsccnt = 0;
+        for (int j = 0; j < circlescount; j++){
+          if (j == i){
+            continue;
+          }
+          if (intersect(figur[i]->x, figur[i]->y, figur[i]->R, figur[j]->x, figur[j]->y, figur[j]->R)==1){
+            printf("%d. circle(%f %f, %f)\n", j+1, figur[j]->x, figur[j]->y, figur[j]->R);
+            intrsccnt++;
+          }
+        }
+        if (intrsccnt == 0){
+          printf("Doesn't intersect\n");
+        }
+        printf("\n\n");
     }
     fclose(fp);
     return 0;

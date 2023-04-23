@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 double x_reader(char* str)
 {
@@ -56,14 +57,31 @@ double r_reader(char* str)
     return r;
 }
 
-int square(double r)
+double square(double r)
 {
-    int p = 2 * M_PI * r;
+    double p = 2 * M_PI * r;
     return p;
 }
 
-int perimetr(double r)
+double perimetr(double r)
 {
-    int s = M_PI * r * r;
+    double s = M_PI * r * r;
     return s;
+}
+
+int intersect(double x, double y, double r, double comx, double comy, double comr){
+    double dist, distx, disty;
+    distx=x-comx;
+    disty=y-comy;
+    if (distx < 0){
+      distx=distx * -1;
+    }
+    if (disty < 0){
+      disty=disty * -1;
+    }
+    dist=sqrt((distx*distx)+(disty*disty));
+    if (dist <= comr+r) {
+      return 1;
+    }
+    return 0;
 }
