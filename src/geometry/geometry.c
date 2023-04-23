@@ -6,6 +6,7 @@
 
 int main()
 {
+    printf("\n\n");
     char* file = "input.txt";
     FILE* fp = fopen(file, "r");
     if (!fp) {
@@ -21,14 +22,12 @@ int main()
     circle* figur[counter];
     char str[100];
     char circ[20];
-    int chek_m;
     int circlescount = 0;
     while (fscanf(fp, "%s ", circ) == 1) {
         fgets(str, 100, fp);
         circle* circles = (circle*)malloc((sizeof(double) * 3));
-        chek_m = Errors_checker(circ, str);
-        if (chek_m == 0) {
-            break;
+        if (word_check(circ, str)==0 || first_bkt_check(circ, str)==0 || second_bkt_check(circ, str)==0 || arguments_check(circ, str)==0 || range_check(circ, str)==0 || argument_field_check(circ, str)==0 || point_check(circ, str)==0 || comma_check(circ, str)==0 || amount_of_arguments_check(circ, str)==0) {
+            return 0;
         }
         circles->x = x_reader(str);
         circles->y = y_reader(str);
@@ -37,16 +36,29 @@ int main()
         circlescount++;
     }
     for (int i = 0; i < circlescount; i++) {
-        int s = square(figur[i]->R);
-        int p = perimetr(figur[i]->R);
+        double s = square(figur[i]->R);
+        double p = perimetr(figur[i]->R);
         printf("Figure number %d:\n", i + 1);
-        printf("X coordinate:%f Y coordinate:%f Radius:%f Square:%d "
-               "Perimetr:%d\n",
+        printf("For circle(%f %f, %f):\nArea:%f Perimetr:%f\nIntersects with:\n",
                figur[i]->x,
                figur[i]->y,
                figur[i]->R,
                s,
                p);
+        int intrsccnt = 0;
+        for (int j = 0; j < circlescount; j++){
+          if (j == i){
+            continue;
+          }
+          if (intersect(figur[i]->x, figur[i]->y, figur[i]->R, figur[j]->x, figur[j]->y, figur[j]->R)==1){
+            printf("%d. circle(%f %f, %f)\n", j+1, figur[j]->x, figur[j]->y, figur[j]->R);
+            intrsccnt++;
+          }
+        }
+        if (intrsccnt == 0){
+          printf("Doesn't intersect\n");
+        }
+        printf("\n\n");
     }
     fclose(fp);
     return 0;
