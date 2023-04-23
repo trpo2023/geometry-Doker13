@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include <libgeometry/parser.h>
+#include <libgeometry/PaS.h>
 
 #include <ctest.h>
 
@@ -113,4 +114,51 @@ CTEST(TEST_amount_of_arguments_check, arguments)
     int unexpectedresult = amount_of_arguments_check(unexpectedword, unexpectedarg);
     ASSERT_EQUAL(1, expectedresult);
     ASSERT_EQUAL(0, unexpectedresult);
+}
+
+CTEST(TEST_x_reader, reader)
+{
+    char* expectedarg = "(1.57 1.89, 1.37)";
+    int expectedresult = x_reader(expectedarg);
+    ASSERT_EQUAL(1.57, expectedresult);
+}
+
+CTEST(TEST_y_reader, reader)
+{
+    char* expectedarg = "(1.57 1.89, 1.37)";
+    int expectedresult = y_reader(expectedarg);
+    ASSERT_EQUAL(1.89, expectedresult);
+}
+
+CTEST(TEST_r_reader, reader)
+{
+    char* expectedarg = "(1.57 1.89, 1.37)";
+    int expectedresult = r_reader(expectedarg);
+    ASSERT_EQUAL(1.37, expectedresult);
+}
+
+CTEST(TEST_square, square)
+{
+    double expectedarg = 10;
+    double expectedresult = square(expectedarg);
+    ASSERT_EQUAL(62.831853, expectedresult);
+}
+
+CTEST(TEST_perimetr, perimetr)
+{
+    double expectedarg = 10;
+    double expectedresult = perimetr(expectedarg);
+    ASSERT_EQUAL(314.159265, expectedresult);
+}
+
+CTEST(TEST_intersect, intersect)
+{
+    double expectedx = 4;
+    double expectedy = 4;
+    double expectedr = 10;
+    double expectedcomx = 1;
+    double expectedcomy = 1;
+    double expectedcomr = 10;
+    int expectedresult = intersect(expectedx, expectedy, expectedr, expectedcomx, expectedcomy, expectedcomr);
+    ASSERT_EQUAL(1, expectedresult);
 }
