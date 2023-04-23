@@ -6,7 +6,8 @@
 #define zeroASCII 48
 #define nineASCII 57
 
-int word_check(char* circ, char* str) {
+int word_check(char* circ, char* str)
+{
     char standart[] = "circle";
     char data[20];
     int i = 0;
@@ -22,7 +23,8 @@ int word_check(char* circ, char* str) {
     return 1;
 }
 
-int first_bkt_check(char* circ, char* str) {
+int first_bkt_check(char* circ, char* str)
+{
     if (str[0] != '(') {
         printf("%s %sError at column 8: expected '('\n", circ, str);
         return 0;
@@ -30,7 +32,8 @@ int first_bkt_check(char* circ, char* str) {
     return 1;
 }
 
-int second_bkt_check(char* circ, char* str) {
+int second_bkt_check(char* circ, char* str)
+{
     int u = 0;
     while (1) {
         if (str[u] == ')') {
@@ -45,7 +48,8 @@ int second_bkt_check(char* circ, char* str) {
     }
 }
 
-int arguments_check(char* circ, char* str) {
+int arguments_check(char* circ, char* str)
+{
     int a = -1;
     int cnt = 0;
     while (str[a] != ')') {
@@ -62,7 +66,8 @@ int arguments_check(char* circ, char* str) {
     return 1;
 }
 
-int range_check(char* circ, char* str) {
+int range_check(char* circ, char* str)
+{
     int k = 1;
     while (1) {
         if (str[k + 2] == '\0' && str[k] == ')') {
@@ -77,7 +82,8 @@ int range_check(char* circ, char* str) {
     }
 }
 
-int argument_field_check(char* circ, char* str) {
+int argument_field_check(char* circ, char* str)
+{
     int ind = 1;
     for (int i = 1; str[i] != ')'; i++) {
         if ((str[i] >= zeroASCII && str[i] <= nineASCII) || str[i] == '.'
@@ -95,7 +101,8 @@ int argument_field_check(char* circ, char* str) {
     return 1;
 }
 
-int point_check(char* circ, char* str) {
+int point_check(char* circ, char* str)
+{
     int y = 1;
     int countp = 0;
     while (str[y] != ')') {
@@ -123,7 +130,8 @@ int point_check(char* circ, char* str) {
     return 1;
 }
 
-int comma_check(char* circ, char* str) {
+int comma_check(char* circ, char* str)
+{
     int g = 1;
     int countc = 0;
     while (str[g] != ')') {
@@ -146,7 +154,8 @@ int comma_check(char* circ, char* str) {
     return 1;
 }
 
-int amount_of_arguments_check(char* circ, char* str) {
+int amount_of_arguments_check(char* circ, char* str)
+{
     int h = 0;
     int countnum = 0;
     int end = 0;
