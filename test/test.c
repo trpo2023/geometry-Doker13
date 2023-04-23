@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <libgeometry/parser.h>
 #include <libgeometry/PaS.h>
+#include <libgeometry/parser.h>
 
 #include <ctest.h>
 
@@ -111,7 +111,8 @@ CTEST(TEST_amount_of_arguments_check, arguments)
     char* expectedarg = "(1 1, 1)";
     char* unexpectedarg = "(1 1, 1 1)";
     int expectedresult = amount_of_arguments_check(expectedword, expectedarg);
-    int unexpectedresult = amount_of_arguments_check(unexpectedword, unexpectedarg);
+    int unexpectedresult
+            = amount_of_arguments_check(unexpectedword, unexpectedarg);
     ASSERT_EQUAL(1, expectedresult);
     ASSERT_EQUAL(0, unexpectedresult);
 }
@@ -159,6 +160,12 @@ CTEST(TEST_intersect, intersect)
     double expectedcomx = 1;
     double expectedcomy = 1;
     double expectedcomr = 10;
-    int expectedresult = intersect(expectedx, expectedy, expectedr, expectedcomx, expectedcomy, expectedcomr);
+    int expectedresult = intersect(
+            expectedx,
+            expectedy,
+            expectedr,
+            expectedcomx,
+            expectedcomy,
+            expectedcomr);
     ASSERT_EQUAL(1, expectedresult);
 }
