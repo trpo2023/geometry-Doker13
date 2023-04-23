@@ -21,14 +21,12 @@ int main()
     circle* figur[counter];
     char str[100];
     char circ[20];
-    int chek_m;
     int circlescount = 0;
     while (fscanf(fp, "%s ", circ) == 1) {
         fgets(str, 100, fp);
         circle* circles = (circle*)malloc((sizeof(double) * 3));
-        chek_m = Errors_checker(circ, str);
-        if (chek_m == 0) {
-            break;
+        if (word_check(circ, str)==0 || first_bkt_check(circ, str)==0 || second_bkt_check(circ, str)==0 || arguments_check(circ, str)==0 || range_check(circ, str)==0 || argument_field_check(circ, str)==0 || point_check(circ, str)==0 || comma_check(circ, str)==0 || amount_of_arguments_check(circ, str)==0) {
+            return 0;
         }
         circles->x = x_reader(str);
         circles->y = y_reader(str);
