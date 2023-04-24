@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <libgeometry/PaS.h>
 #include <libgeometry/parser.h>
 #include <malloc.h>
@@ -25,7 +26,7 @@ int main()
     int circlescount = 0;
     while (fscanf(fp, "%s ", circ) == 1) {
         fgets(str, 100, fp);
-        circle* circles = (circle*)malloc((sizeof(double) * 3));
+        circle* circles = (circle*)malloc(sizeof(circle));
         if (word_check(circ, str) == 0 || first_bkt_check(circ, str) == 0
             || second_bkt_check(circ, str) == 0
             || arguments_check(circ, str) == 0 || range_check(circ, str) == 0
@@ -76,6 +77,10 @@ int main()
             printf("Doesn't intersect\n");
         }
         printf("\n\n");
+    }
+    size_t n = sizeof(figur) / sizeof(figur[0]);
+    for (size_t i = 0; i < n; i++) {
+        free(figur[i]);
     }
     fclose(fp);
     return 0;
