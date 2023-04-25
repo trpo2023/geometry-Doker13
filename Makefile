@@ -52,8 +52,8 @@ $(TEST_PATH): $(TEST_OBJECTS) $(LIB_PATH)
 
 .PHONY: test
 
-test: bin/testapp.out
-	./bin/testapp.out
+test: bin/test.out
+	./bin/test.out
 
 clean:
 	# rm obj/test/*.*
