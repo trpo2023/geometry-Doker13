@@ -1,7 +1,8 @@
 #include <ctype.h>
-#include <libgeometry/parser.h>
 #include <stdio.h>
 #include <string.h>
+
+#include <libgeometry/parser.h>
 
 #define zeroASCII 48
 #define nineASCII 57

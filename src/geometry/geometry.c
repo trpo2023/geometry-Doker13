@@ -1,9 +1,10 @@
 #include <ctype.h>
-#include <libgeometry/PaS.h>
-#include <libgeometry/parser.h>
 #include <malloc.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#include <libgeometry/PaS.h>
+#include <libgeometry/parser.h>
 
 int main()
 {

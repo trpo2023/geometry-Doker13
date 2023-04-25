@@ -1,8 +1,3 @@
-#include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include <libgeometry/PaS.h>
 #include <libgeometry/parser.h>
 
