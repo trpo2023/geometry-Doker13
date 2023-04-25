@@ -1,6 +1,5 @@
 #include <ctest.h>
 
-
 #include <libgeometry/PaS.h>
 #include <libgeometry/parser.h>
 
