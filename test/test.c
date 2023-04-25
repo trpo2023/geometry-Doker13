@@ -1,7 +1,7 @@
+#include <ctest.h>
+
 #include <libgeometry/PaS.h>
 #include <libgeometry/parser.h>
-
-#include <ctest.h>
 
 CTEST(TEST_word_check, circle)
 {

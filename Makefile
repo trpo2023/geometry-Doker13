@@ -29,8 +29,8 @@ LIB_OBJECTS = $(LIB_SOURCES:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
 
 DEPS = $(APP_OBJECTS:.o=.d) $(LIB_OBJECTS:.o=.d) $(TEST_OBJECTS:.o=.d)
 
-.PHONY: all
-all: $(APP_PATH)
+.PHONY: geometry
+geometry: $(APP_PATH)
 
 -include $(DEPS)
 
@@ -45,6 +45,7 @@ $(OBJ_DIR)/%.o: %.c
 
 .PHONY: test
 test: $(TEST_PATH)
+	./bin/geometry_test
 
 $(TEST_PATH): $(TEST_OBJECTS) $(LIB_PATH)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDLIBS) 
