@@ -49,7 +49,14 @@ test: $(TEST_PATH)
 $(TEST_PATH): $(TEST_OBJECTS) $(LIB_PATH)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDLIBS) 
 
-.PHONY: clean
+
+.PHONY: test
+
+test: bin/testapp.out
+	./bin/testapp.out
+
 clean:
-	$(RM) $(APP_PATH) $(LIB_PATH) $(TEST_PATH)
-	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
+	# rm obj/test/*.*
+	rm obj/lib/*.*
+	rm bin/*.out
+	rm bin/*.d
