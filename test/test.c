@@ -3,7 +3,7 @@
 #include <libgeometry/PaS.h>
 #include <libgeometry/parser.h>
 
-CTEST(TEST_word_check, circle)
+CTEST(TEST_circle, word_check)
 {
     char* expectedword = "circle";
     char* unexpectedword = "circlte";
@@ -15,7 +15,7 @@ CTEST(TEST_word_check, circle)
     ASSERT_EQUAL(0, unexpectedresult);
 }
 
-CTEST(TEST_first_bkt_check, arguments)
+CTEST(TEST_arguments, first_bkt_check)
 {
     char* expectedword = "circle";
     char* unexpectedword = "circle";
@@ -27,7 +27,7 @@ CTEST(TEST_first_bkt_check, arguments)
     ASSERT_EQUAL(0, unexpectedresult);
 }
 
-CTEST(TEST_second_bkt_check, arguments)
+CTEST(TEST_arguments, second_bkt_check)
 {
     char* expectedword = "circle";
     char* unexpectedword = "circle";
@@ -39,7 +39,7 @@ CTEST(TEST_second_bkt_check, arguments)
     ASSERT_EQUAL(0, unexpectedresult);
 }
 
-CTEST(TEST_arguments_check, arguments)
+CTEST(TEST_arguments, arguments_check)
 {
     char* expectedword = "circle";
     char* unexpectedword = "circle";
@@ -51,7 +51,7 @@ CTEST(TEST_arguments_check, arguments)
     ASSERT_EQUAL(0, unexpectedresult);
 }
 
-CTEST(TEST_range_check, arguments)
+CTEST(TEST_arguments, range_check)
 {
     char* expectedword = "circle";
     char* unexpectedword = "circle";
@@ -63,7 +63,7 @@ CTEST(TEST_range_check, arguments)
     ASSERT_EQUAL(0, unexpectedresult);
 }
 
-CTEST(TEST_argument_field_check, arguments)
+CTEST(TEST_arguments, argument_field_check)
 {
     char* expectedword = "circle";
     char* unexpectedword = "circle";
@@ -75,7 +75,7 @@ CTEST(TEST_argument_field_check, arguments)
     ASSERT_EQUAL(0, unexpectedresult);
 }
 
-CTEST(TEST_point_check, arguments)
+CTEST(TEST_arguments, point_check)
 {
     char* expectedword = "circle";
     char* unexpectedword = "circle";
@@ -87,7 +87,7 @@ CTEST(TEST_point_check, arguments)
     ASSERT_EQUAL(0, unexpectedresult);
 }
 
-CTEST(TEST_comma_check, arguments)
+CTEST(TEST_arguments, comma_check)
 {
     char* expectedword = "circle";
     char* unexpectedword = "circle";
@@ -99,7 +99,7 @@ CTEST(TEST_comma_check, arguments)
     ASSERT_EQUAL(0, unexpectedresult);
 }
 
-CTEST(TEST_amount_of_arguments_check, arguments)
+CTEST(TEST_arguments, amount_of_arguments_check)
 {
     char* expectedword = "circle";
     char* unexpectedword = "circle";
@@ -112,21 +112,21 @@ CTEST(TEST_amount_of_arguments_check, arguments)
     ASSERT_EQUAL(0, unexpectedresult);
 }
 
-CTEST(TEST_x_reader, reader)
+CTEST(TEST_reader, x_reader)
 {
     char* expectedarg = "(1.57 1.89, 1.37)";
     int expectedresult = x_reader(expectedarg);
     ASSERT_EQUAL(1.57, expectedresult);
 }
 
-CTEST(TEST_y_reader, reader)
+CTEST(TEST_reader, y_reader)
 {
     char* expectedarg = "(1.57 1.89, 1.37)";
     int expectedresult = y_reader(expectedarg);
     ASSERT_EQUAL(1.89, expectedresult);
 }
 
-CTEST(TEST_r_reader, reader)
+CTEST(TEST_reader, r_reader)
 {
     char* expectedarg = "(1.57 1.89, 1.37)";
     int expectedresult = r_reader(expectedarg);
