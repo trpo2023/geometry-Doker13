@@ -54,4 +54,3 @@ $(TEST_PATH): $(TEST_OBJECTS) $(LIB_PATH)
 clean:
 	$(RM) $(APP_PATH) $(LIB_PATH) $(TEST_PATH)
 	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
-
